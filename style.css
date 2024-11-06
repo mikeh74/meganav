@@ -34,3 +34,7 @@ ul.mn-content {
     padding: 0;
     margin: 0;
 }
+
+body.active {
+    background-color: aqua;
+}
