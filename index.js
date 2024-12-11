@@ -1,3 +1,4 @@
+const meganav = () => {
 
 // query selector all using data attribute data-mn-target
 document.querySelectorAll('[data-mn-target]').forEach(trigger => {
@@ -21,7 +22,7 @@ document.querySelectorAll('[data-mn-target]').forEach(trigger => {
                 // close any other open menus before we open the current one
                 closeMenu();
                 target.classList.add('mn-open');
-                document.body.classList.add('active');
+                document.body.classList.add('mn-active');
             }
         });
     });
@@ -31,7 +32,7 @@ function closeMenu() {
     document.querySelectorAll('.mn-wrapper').forEach(target => {
         target.classList.remove('mn-open');
     });
-    document.body.classList.remove('active');
+    document.body.classList.remove('mn-active');
 };
 
 document.addEventListener('click', function (event) {
@@ -39,3 +40,24 @@ document.addEventListener('click', function (event) {
         closeMenu();
     }
 });
+
+    const navSearch = document.querySelector('.nav-block-link-search');
+    const searchBar = document.querySelector('#search-bar');
+    const main = document.getElementById('main');
+
+    if (navSearch && searchBar) {
+      navSearch.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        searchBar.classList.toggle('search-bar--show');
+        main.classList.toggle('search-bar--active');
+      });
+
+      main.addEventListener('click', (event) => {
+        searchBar.classList.remove('search-bar--show');
+        main.classList.remove('search-bar--active');
+      });
+    };
+};
+
+export default meganav;
