@@ -12,11 +12,10 @@
 </head>
 
 <body>
-
-
     <header class="main-nav">
       <div class="main-nav-logo-container">
         <a href="/">
+          <span class="sr-only">Home</span>
           <img class="main-nav-logo" src="./tmc-logo.webp" alt="">
         </a>
       </div>
@@ -43,33 +42,59 @@
           <div class="container-wide">
             <ul class="main-nav-secondary">
               <li class="main-nav-secondary-item"><a href="#submenu-1">Courses</a>
-                <div id="submenu-1" class="submenu">
+                <div id="submenu-1" class="submenu" tabindex="-1" aria-hidden="true">
                   <ul class="submenu-links">
                     <li class="submenu-links-item" data-main-nav-img="./images/img1.jpg">
-                      <a class="rounded-button submenu-links-link" href="https://www.example.com">Browse all Courses</a>
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="https://www.example.com">Browse all Courses</a>
                     </li>
-                    <li class="submenu-links-item" data-main-nav-img="./images/img2.jpg"><a
-                        class="rounded-button submenu-links-link" href="#">By Subject Area</a></li>
-                    <li class="submenu-links-item" data-main-nav-img="./images/img3.jpg"><a
-                        class="rounded-button submenu-links-link" href="#">By Level</a></li>
-                    <li class="submenu-links-item" data-main-nav-img="./images/img4.jpg"><a
-                        class="rounded-button submenu-links-link" href="#">Part Time & Short Courses</a></li>
-                    <li class="submenu-links-item" data-main-nav-img="./images/img5.jpg"><a
-                        class="rounded-button submenu-links-link" href="#">Apprenticeships</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img2.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="#">By Subject Area</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img3.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="#">By Level</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img4.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="#">Part Time & Short Courses</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img5.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="#">Apprenticeships</a></li>
                     <li class="submenu-links-item d-block">
                       <ul class="submenu-links-nested">
                         <li class="submenu-links-nested-item" data-main-nav-img="./images/img6.jpg">
-                          <a class="rounded-button submenu-links-nested-link" href="#">Student Life</a>
+                          <a class="rounded-button submenu-links-nested-link" tabindex="-1" href="#">Student Life</a>
                         </li>
                         <li class="submenu-links-nested-item" data-main-nav-img="./images/img7.jpg">
-                          <a class="rounded-button submenu-links-nested-link" href="#">Support</a>
+                          <a class="rounded-button submenu-links-nested-link" tabindex="-1" href="#">Support</a>
                         </li>
                       </ul>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="main-nav-secondary-item"><a href="#submenu-2">How to Apply</a></li>
+              <li class="main-nav-secondary-item"><a href="#submenu-2">How to Apply</a>
+                <div id="submenu-2" class="submenu" aria-hidden="true">
+                  <ul class="submenu-links">
+                    <li class="submenu-links-item" data-main-nav-img="./images/img3.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="https://www.example.com">Browse all Courses</a>
+                    </li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img4.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="#">By Subject Area</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img5.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="#">By Level</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img6.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="#">Part Time & Short Courses</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img7.jpg">
+                      <a class="rounded-button submenu-links-link" tabindex="-1" href="#">Apprenticeships</a></li>
+                    <li class="submenu-links-item d-block">
+                      <ul class="submenu-links-nested">
+                        <li class="submenu-links-nested-item" data-main-nav-img="./images/img8.jpg">
+                          <a class="rounded-button submenu-links-nested-link" tabindex="-1" href="#">Student Life</a>
+                        </li>
+                        <li class="submenu-links-nested-item" data-main-nav-img="./images/img9.jpg">
+                          <a class="rounded-button submenu-links-nested-link" tabindex="-1" href="#">Support</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </li>
               <li class="main-nav-secondary-item"><a href="#">Student Life</a></li>
               <li class="main-nav-secondary-item"><a href="#">Support</a></li>
               <li class="main-nav-secondary-item"><a href="#">About Us</a></li>

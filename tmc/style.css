@@ -97,7 +97,6 @@
  * Submenu styles
  * This component can be treated as self contained rather than being part of the main nav.
  */
-
 .submenu {
     display: block;
     opacity: 0;
@@ -106,6 +105,12 @@
     top: 90%;
     left: 0;
     width: 100%;
+}
+
+/**
+ * Styles for the submenu when it is loaded to stop initial display of menu
+ */
+.submenu-loaded {
     transition: opacity 0.2s ease-in-out, top 0.2s ease-in-out;
 }
 
