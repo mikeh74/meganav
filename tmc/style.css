@@ -231,3 +231,8 @@ li.submenu-links-item {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     outline: none;
 }
+
+/* .main-nav-primary,
+.main-nav-secondary {
+    flex-direction: column;
+} */
