@@ -1,3 +1,10 @@
+.container-wide {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .main-nav {
     position: relative;
     width: 100%;
@@ -9,40 +16,113 @@
     display: none;
 }
 
-.burger-button {
-    background: none;
-    border: none;
-    cursor: pointer;
+.main-nav-logo-container {
+    pointer-events: none;
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    inset: 4rem 0 0 0;
+    left: 0;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
 }
 
-.main-nav-logo img {
-    height: 50px;
+.main-nav-logo {
+    pointer-events: initial;
+    height: 4rem;
     width: auto;
+    margin: 0.3rem;
 }
 
-.main-nav li {
+/* .main-nav li {
     list-style: none;
     display: inline-block;
-    /* position: relative; */
-    padding-bottom: 1rem;
-}
+} */
 
-.main-nav .submenu {
+/* .main-nav li:hover .submenu {
     display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
+} */
+
+.main-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
 }
 
-.main-nav .submenu-links {
+
+.bg-oatmeal {
+    background-color: #f6f5ee;
+    display: block;
+}
+
+.main-nav-primary {
+    font-weight: 600;
+}
+
+.main-nav-primary,
+.main-nav-secondary {
+    color: #575756;
+    text-transform: uppercase;
+    display: flex;
+    font-size: 0.625rem;
+    flex-direction: row;
+    justify-content: end;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    margin: 0;
+}
+
+.main-nav-primary a,
+.main-nav-secondary a {
+    color: inherit;
+}
+
+.main-nav-secondary {
+    font-weight: 800;
+    margin: 1rem 0;
+}
+
+.main-nav-primary-item,
+.main-nav-secondary-item {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+/**
+ * Submenu styles
+ * This component can be treated as self contained rather than being part of the main nav.
+ */
+
+.submenu {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    width: 100%;
+    transition: opacity 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+
+.submenu-active {
+    display: block;
+    opacity: 1;
+    pointer-events: initial;
+    transition: opacity 0.2s ease-in-out, top 0.2s ease-in-out;
+    top: 100%;
+}
+
+.submenu-links {
     list-style: none;
     padding: 0;
     margin: auto;
     width: 90%;
+    max-width: 1440px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -55,12 +135,12 @@ li.submenu-links-item {
     flex: 0 0 calc((100% - 10px * 5) / 7);
     width: 100%;
     padding: 0;
-    min-height: 250px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    min-height: 250px;
+    min-height: 300px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 [data-main-nav-img] {
@@ -68,8 +148,7 @@ li.submenu-links-item {
     background-size: cover;
 }
 
-.main-nav .submenu-links > li:first-child {
-    background-color: green;
+.submenu-links>li:first-child {
     flex: 0 0 calc(((100% - 10px * 5) / 7) * 2);
 }
 
@@ -78,50 +157,6 @@ li.submenu-links-item {
     height: auto;
     margin: 1rem;
     max-width: calc(100% - 1rem);
-}
-
-.main-nav li:hover .submenu {
-    display: block;
-}
-
-.rounded-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-transform: uppercase;
-
-    padding: 0.9375rem 1.5625rem;
-    border: 1px solid #8e1371;
-    border-radius: 6.25rem;
-    background-color: #fff;
-    color: #8e1371;
-
-    font-size: 0.625em;
-    font-weight: 700;
-
-    /* white-space: normal; */
-    hyphens: manual;
-    text-align: center;
-    overflow: hidden;
-    min-width: 6.25rem;
-    max-width: 100%;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-}
-
-.rounded-button:hover, .rounded-button:focus-visible {
-    background-color: #8e1371;
-    color: #fff;
-    border-color: transparent;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    outline: none;
-}
-
-.container-wide {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .submenu-links-nested {
@@ -152,4 +187,42 @@ li.submenu-links-item {
 
 .submenu-links-nested-link {
     margin: 1rem;
+}
+
+/** * Rounded button styles
+ *  Need to update the bootstrap variables to use these styles
+ */
+
+.rounded-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-transform: uppercase;
+
+    padding: 0.9375rem 1.5625rem;
+    border: 1px solid #8e1371;
+    border-radius: 6.25rem;
+    background-color: #fff;
+    color: #8e1371;
+
+    font-size: 0.625em;
+    font-weight: 700;
+
+    /* white-space: normal; */
+    hyphens: manual;
+    text-align: center;
+    overflow: hidden;
+    min-width: 6.25rem;
+    max-width: 100%;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.rounded-button:hover,
+.rounded-button:focus-visible {
+    background-color: #8e1371;
+    color: #fff;
+    border-color: transparent;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    outline: none;
 }

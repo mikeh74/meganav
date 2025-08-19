@@ -2,87 +2,87 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example of TMC Mega Nav</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example of TMC Mega Nav</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container-wide">
-        <header class="main-nav">
-            <div class="main-nav-logo">
-                <img src="./tmc-logo.webp" alt="">
-            </div>
-            <div class="burger-menu">
-                <button class="burger-button" aria-label="Toggle navigation">
-                    <span class="burger-icon"></span> Menu
-                </button>
-            </div>
 
-            <nav class="meganav-links">
-                <ul>
-                    <li><a href="#">Current Students</a></li>
-                    <li><a href="#">Parents/Guardians</a></li>
-                    <li><a href="#">Employers</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#submenu-1">Courses</a>
-                        <div class="submenu">
-                            <ol class="submenu-links" id="submenu-1">
-                                <li class="submenu-links-item"
-                                    data-main-nav-img="./images/img1.jpg">
-                                    <a class="rounded-button submenu-links-link"
-                                        href="#">Browse all Courses</a></li>
-                                <li class="submenu-links-item" 
-                                    data-main-nav-img="./images/img2.jpg"><a class="rounded-button submenu-links-link"
-                                        href="#">By Subject Area</a></li>
-                                <li class="submenu-links-item" 
-                                    data-main-nav-img="./images/img3.jpg"><a class="rounded-button submenu-links-link"
-                                        href="#">By Level</a></li>
-                                <li class="submenu-links-item"
-                                    data-main-nav-img="./images/img4.jpg"><a class="rounded-button submenu-links-link"
-                                        href="#">Part Time & Short Courses</a></li>
-                                <li class="submenu-links-item"
-                                    data-main-nav-img="./images/img5.jpg"><a class="rounded-button submenu-links-link"
-                                        href="#">Apprenticeships</a></li>
-                                <li class="submenu-links-item d-block">
-                                    <ol class="submenu-links-nested">
-                                        <li class="submenu-links-nested-item"
-                                            data-main-nav-img="./images/img6.jpg">
-                                            <a class="rounded-button submenu-links-nested-link"
-                                                href="#">Student Life</a></li>
-                                        <li class="submenu-links-nested-item"
-                                            data-main-nav-img="./images/img7.jpg">
-                                            <a class="rounded-button submenu-links-nested-link"
-                                                href="#">Support</a></li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </div>
+    <header class="main-nav">
+      <div class="main-nav-logo-container">
+        <a href="/">
+          <img class="main-nav-logo" src="./tmc-logo.webp" alt="">
+        </a>
+      </div>
+
+      <div class="burger-menu">
+        <button class="burger-button" aria-label="Toggle navigation">
+          <span class="burger-icon"></span> Menu
+        </button>
+      </div>
+
+      <nav class="main-nav-links">
+        <div class="bg-oatmeal w-100">
+          <div class="container-wide">
+            <ul class="main-nav-primary">
+              <li class="main-nav-primary-item"><a href="#">Current Students</a></li>
+              <li class="main-nav-primary-item"><a href="#">Parents/Guardians</a></li>
+              <li class="main-nav-primary-item"><a href="#">Employers</a></li>
+              <li class="main-nav-primary-item"><a href="#">Events</a></li>
+              <li class="main-nav-primary-item"><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="w-100">
+          <div class="container-wide">
+            <ul class="main-nav-secondary">
+              <li class="main-nav-secondary-item"><a href="#submenu-1">Courses</a>
+                <div id="submenu-1" class="submenu">
+                  <ul class="submenu-links">
+                    <li class="submenu-links-item" data-main-nav-img="./images/img1.jpg">
+                      <a class="rounded-button submenu-links-link" href="https://www.example.com">Browse all Courses</a>
                     </li>
-                    <li><a href="#submenu-2">How to Apply</a></li>
-                    <li><a href="#">Student Life</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Start Here</a></li>
-                    <li><a href="#">Apply Now</a></li>
-                    <li><a href="#">Search Site</a></li>
-                </ul>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img2.jpg"><a
+                        class="rounded-button submenu-links-link" href="#">By Subject Area</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img3.jpg"><a
+                        class="rounded-button submenu-links-link" href="#">By Level</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img4.jpg"><a
+                        class="rounded-button submenu-links-link" href="#">Part Time & Short Courses</a></li>
+                    <li class="submenu-links-item" data-main-nav-img="./images/img5.jpg"><a
+                        class="rounded-button submenu-links-link" href="#">Apprenticeships</a></li>
+                    <li class="submenu-links-item d-block">
+                      <ul class="submenu-links-nested">
+                        <li class="submenu-links-nested-item" data-main-nav-img="./images/img6.jpg">
+                          <a class="rounded-button submenu-links-nested-link" href="#">Student Life</a>
+                        </li>
+                        <li class="submenu-links-nested-item" data-main-nav-img="./images/img7.jpg">
+                          <a class="rounded-button submenu-links-nested-link" href="#">Support</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="main-nav-secondary-item"><a href="#submenu-2">How to Apply</a></li>
+              <li class="main-nav-secondary-item"><a href="#">Student Life</a></li>
+              <li class="main-nav-secondary-item"><a href="#">Support</a></li>
+              <li class="main-nav-secondary-item"><a href="#">About Us</a></li>
+              <li class="main-nav-secondary-item"><a href="#">Start Here</a></li>
+              <li class="main-nav-secondary-item"><a href="#" class="rounded-button">Apply Now</a></li>
+              <li class="main-nav-secondary-item"><a href="#">Search Site</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-            </nav>
-
-
-        </header>
-    </div>
-
-    <script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>
