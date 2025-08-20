@@ -98,19 +98,25 @@
     display: block;
 }
 
+.main-nav-btn-open,
 .main-nav-btn-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: transparent;
     border: none;
-    color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+.main-nav-btn-close {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* .main-nav-secondary-item a:hover span {
+    text-decoration: none;
+    text-decoration-line: none !important;
+} */
 
 /**
  * Submenu styles
@@ -201,9 +207,9 @@ li.submenu-links-item {
         padding: 0 20px;
     }
 
-    .burger-menu {
+    /* .burger-menu {
         display: none;
-    }
+    } */
 
     .main-nav {
         flex-direction: row;
