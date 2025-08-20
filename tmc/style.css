@@ -9,6 +9,7 @@
     position: relative;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -18,39 +19,25 @@
 
 .main-nav-logo-container {
     pointer-events: none;
-    max-width: 1440px;
-    width: 100%;
-    margin: auto;
-    position: absolute;
-    inset: 4rem 0 0 0;
-    left: 0;
+    position: relative;
     display: flex;
     align-items: center;
 }
 
 .main-nav-logo {
     pointer-events: initial;
-    height: 4rem;
+    height: 3rem;
     width: auto;
     margin: 0.3rem;
 }
 
-/* .main-nav li {
-    list-style: none;
-    display: inline-block;
-} */
-
-/* .main-nav li:hover .submenu {
-    display: block;
-} */
-
 .main-nav-links {
     display: flex;
     flex-direction: column;
+    flex-flow: column-reverse;
     align-items: center;
     width: 100%;
 }
-
 
 .bg-oatmeal {
     background-color: #f6f5ee;
@@ -67,8 +54,8 @@
     text-transform: uppercase;
     display: flex;
     font-size: 0.625rem;
-    flex-direction: row;
-    justify-content: end;
+    flex-direction: column;
+    justify-content: start;
     gap: 0.5rem;
     width: 100%;
     padding: 1rem;
@@ -102,9 +89,6 @@
     opacity: 0;
     pointer-events: none;
     position: absolute;
-    top: 90%;
-    left: 0;
-    width: 100%;
 }
 
 /**
@@ -125,36 +109,17 @@
 .submenu-links {
     list-style: none;
     padding: 0;
-    margin: auto;
-    width: 90%;
-    max-width: 1440px;
     background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
     display: flex;
-    gap: 10px;
+    flex-direction: column;
 }
 
 li.submenu-links-item {
     background-color: lightgray;
-    flex: 0 0 calc((100% - 10px * 5) / 7);
-    width: 100%;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    min-height: 300px;
     overflow: hidden;
     cursor: pointer;
-}
-
-[data-main-nav-img] {
-    background-position: center;
-    background-size: cover;
-}
-
-.submenu-links>li:first-child {
-    flex: 0 0 calc(((100% - 10px * 5) / 7) * 2);
 }
 
 .submenu-links-link {
@@ -179,9 +144,9 @@ li.submenu-links-item {
     background-color: lightgray;
     padding: 0 !important;
     margin: 0 !important;
-    width: 100%;
+    width: auto;
 
-    flex: 1 1 50%;
+    flex: 0 0 1;
     flex-direction: row;
 
     display: flex !important;
@@ -194,11 +159,17 @@ li.submenu-links-item {
     margin: 1rem;
 }
 
+[data-main-nav-img] {
+    background-position: center;
+    background-size: cover;
+}
+
+
 /** * Rounded button styles
  *  Need to update the bootstrap variables to use these styles
  */
 
-.rounded-button {
+.submenu-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,8 +194,8 @@ li.submenu-links-item {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
-.rounded-button:hover,
-.rounded-button:focus-visible {
+.submenu-btn:hover,
+.submenu-btn:focus-visible {
     background-color: #8e1371;
     color: #fff;
     border-color: transparent;
@@ -236,3 +207,86 @@ li.submenu-links-item {
 .main-nav-secondary {
     flex-direction: column;
 } */
+
+@media (min-width: 1200px) {
+
+    .main-nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .main-nav-logo-container {
+        max-width: 1440px;
+        width: 100%;
+        margin: auto;
+        position: absolute;
+        inset: 4rem 0 0 0;
+        left: 0;
+    }
+
+    .main-nav-logo {
+        height: 4rem;
+     }
+
+     .main-nav-primary, .main-nav-secondary {
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        width: 100%;
+        padding: 1rem 2rem;
+     }
+
+     .main-nav-links {
+        flex-direction: column;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+     }
+
+    .submenu {
+        position: absolute;
+        top: 90%;
+        left: 0;
+        width: 100%;
+    }
+
+    .submenu-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: auto;
+        max-width: 1440px;
+        justify-content: space-between;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        gap: 10px;
+    }
+
+    li.submenu-links-item {
+        min-height: 300px;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .submenu-links>li:first-child {
+        flex: 0 0 calc(((100% - 10px * 5) / 7) * 2);
+    }
+
+    .submenu-links-item {
+        flex: 0 0 calc((100% - 10px * 5) / 7);
+        min-height: 200px;
+    }
+
+    .submenu-links-nested-item {
+        width: 100%;
+        flex: 1 1 50%;
+    }
+
+    [data-main-nav-img] {
+        background-position: center;
+        background-size: cover;
+    }
+
+}
