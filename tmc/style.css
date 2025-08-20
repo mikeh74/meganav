@@ -1,4 +1,3 @@
-
 .main-nav {
     position: relative;
     width: 100%;
@@ -23,7 +22,8 @@
 }
 
 .main-nav-links {
-    display: flex;
+    position: absolute;
+    display: none;
     flex-direction: column;
     flex-flow: column-reverse;
     align-items: center;
@@ -33,8 +33,7 @@
 }
 
 .main-nav-links-active {
-    position: absolute;
-
+    display: flex;
 }
 
 .main-nav-primary {
@@ -62,9 +61,27 @@
 
 .main-nav-primary-item,
 .main-nav-secondary-item {
-
     font-size: 0.875rem;
     list-style: none;
+}
+
+.main-nav-btn-open {
+    pointer-events: all;
+    display: block;
+}
+
+.main-nav-btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /**
@@ -93,7 +110,8 @@
     pointer-events: initial;
     transition: opacity 0.2s ease-in-out, top 0.2s ease-in-out, max-height 0.33s ease-in-out;
     height: auto;
-    max-height: 600px; /* Prevents the submenu from growing too large */
+    max-height: 600px;
+    /* Prevents the submenu from growing too large */
 }
 
 .submenu-links {
@@ -176,14 +194,15 @@ li.submenu-links-item {
 
     .main-nav-logo {
         height: 4rem;
-     }
+    }
 
     .main-nav-primary-outer {
         background-color: #f6f5ee;
         display: block;
     }
 
-     .main-nav-primary, .main-nav-secondary {
+    .main-nav-primary,
+    .main-nav-secondary {
         display: flex;
         flex-direction: row;
         justify-content: end;
@@ -191,19 +210,28 @@ li.submenu-links-item {
         gap: 0.5rem;
         width: 100%;
         padding: 1rem 2rem;
-     }
+    }
 
-     .main-nav-links {
+    .main-nav-links {
+        position: initial;
         flex-flow: column;
         justify-content: space-between;
         background-color: #fff;
         color: #575756;
-     }
+    }
 
-     .main-nav-secondary-item {
+    .main-nav-secondary-item {
         display: flex;
         align-items: center;
-     }
+    }
+
+    .main-nav-btn-open {
+        display: none;
+    }
+
+    .main-nav-btn-close {
+        display: none;
+    }
 
     .submenu {
         position: absolute;
@@ -247,7 +275,7 @@ li.submenu-links-item {
         min-height: 200px;
     }
 
-    .submenu-links-link{
+    .submenu-links-link {
         margin: 1rem;
         max-width: calc(100% - 1rem);
     }

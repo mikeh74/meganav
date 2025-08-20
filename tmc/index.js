@@ -43,7 +43,7 @@ mainNavSecondaryItems.forEach(item => {
 
         targetElement.classList.add('submenu-loaded');
         if (target && target.startsWith('#')) {
-            if(targetElement.classList.contains('submenu-active')) {
+            if (targetElement.classList.contains('submenu-active')) {
                 targetElement.ariaHidden = true;
                 resetSubmenus();
             } else {
@@ -81,12 +81,25 @@ targetExpandElements.forEach(element => {
     });
 });
 
-const mainNavBtn = document.querySelector('.main-nav-btn');
+const mainNavBtnOpen = document.querySelector('.main-nav-btn-open');
+const mainNavBtnClose = document.querySelector('.main-nav-btn-close');
+
 const mainNavLinks = document.querySelector('.main-nav-links');
 
-if (mainNavBtn) {
-    mainNavBtn.addEventListener('click', () => {
+if (mainNavBtnOpen) {
+    mainNavBtnOpen.addEventListener('click', () => {
         console.log('Main nav button clicked');
         mainNavLinks.classList.toggle('main-nav-links-active');
     });
 }
+
+if (mainNavBtnClose) {
+    mainNavBtnClose.addEventListener('click', () => {
+        console.log('Main nav close button clicked');
+        mainNavLinks.classList.remove('main-nav-links-active');
+    });
+}
+
+const mainNavToggle = () => {
+    mainNavLinks.classList.toggle('main-nav-links-active');
+};
