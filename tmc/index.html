@@ -18,17 +18,19 @@
           <span class="sr-only">Home</span>
           <img class="main-nav-logo" src="./tmc-logo.webp" alt="">
         </a>
-      </div>
-
-      <div class="burger-menu">
-        <button class="burger-button" aria-label="Toggle navigation">
-          <span class="burger-icon"></span> Menu
-        </button>
+        <div class="burger-menu">
+          <button class="main-nav-btn burger-button" aria-label="Open main navigation">
+            <span class="burger-icon"></span> Menu
+          </button>
+        </div>
       </div>
 
       <nav class="main-nav-links">
-        <div class="bg-oatmeal w-100">
-          <div class="container-wide">
+        <button class="main-nav-btn" aria-label="Close main navigation">
+          <span class="main-nav-btn-icon"></span>
+        </button>
+        <div class="main-nav-primary-outer w-100">
+          <div class="nav-container">
             <ul class="main-nav-primary">
               <li class="main-nav-primary-item"><a href="#">Current Students</a></li>
               <li class="main-nav-primary-item"><a href="#">Parents/Guardians</a></li>
@@ -39,7 +41,7 @@
           </div>
         </div>
         <div class="w-100">
-          <div class="container-wide">
+          <div class="nav-container">
             <ul class="main-nav-secondary">
               <li class="main-nav-secondary-item"><a href="#submenu-1">Courses</a>
                 <div id="submenu-1" class="submenu" tabindex="-1" aria-hidden="true">
@@ -106,6 +108,13 @@
         </div>
       </nav>
     </header>
+
+    <main>
+      <div class="container">
+        <h1>Welcome to the TMC Mega Nav Example</h1>
+        <p>This is a simple example of a mega navigation menu using HTML, CSS, and JavaScript.</p>
+      </div>
+    </main>
 
   <script src="index.js"></script>
 </body>

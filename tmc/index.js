@@ -28,6 +28,12 @@ const resetSubmenus = () => {
 mainNavSecondaryItems.forEach(item => {
 
     const target = item.getAttribute('href');
+
+    if (!target || !target.startsWith('#') || target === '#') {
+        console.warn('Invalid target for main nav secondary item:', item);
+        return; // Skip this item if the target is invalid
+    }
+
     const targetElement = document.querySelector(target);
 
     item.addEventListener('click', (e) => {
@@ -74,3 +80,13 @@ targetExpandElements.forEach(element => {
         }
     });
 });
+
+const mainNavBtn = document.querySelector('.main-nav-btn');
+const mainNavLinks = document.querySelector('.main-nav-links');
+
+if (mainNavBtn) {
+    mainNavBtn.addEventListener('click', () => {
+        console.log('Main nav button clicked');
+        mainNavLinks.classList.toggle('main-nav-links-active');
+    });
+}
