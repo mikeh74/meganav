@@ -23,21 +23,21 @@
 
 .main-nav-links {
     position: absolute;
-    display: none;
+    display: flex;
     flex-direction: column;
     flex-flow: column-reverse;
     align-items: center;
     width: 100%;
+    padding: 1rem 0;
     background-color: rgba(0, 89, 113, 98);
     color: #fff;
+    top: -100vh; /* Initially hidden off-screen */
+    transition: top 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .main-nav-links-active {
-    display: flex;
-}
-
-.main-nav-primary {
-    font-weight: 600;
+    top: 0px; /* Show the menu when active */
+    transition: top 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .main-nav-primary,
@@ -47,6 +47,13 @@
     display: block;
     width: 100%;
     margin: 0;
+    padding: 0 1rem;
+}
+
+.main-nav-primary {
+    /* border-top: 1px solid #fff; */
+    padding-top: 1rem;
+    font-weight: 600;
 }
 
 .main-nav-primary a,
@@ -55,14 +62,35 @@
 }
 
 .main-nav-secondary {
-    font-weight: 800;
-    margin: 1rem 0;
+    font-weight: 600;
 }
 
 .main-nav-primary-item,
 .main-nav-secondary-item {
     font-size: 0.875rem;
     list-style: none;
+    /* position: relative; */
+}
+
+
+
+/* .main-nav-primary-item > a::after,
+.main-nav-secondary-item > a::after {
+    content: 'foo';
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    right: 0
+} */
+
+.main-nav-secondary-item:last-child {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #fff;
+
+    /* Add any additional styles you want for the last item */
 }
 
 .main-nav-btn-open {
@@ -110,7 +138,7 @@
     pointer-events: initial;
     transition: opacity 0.2s ease-in-out, top 0.2s ease-in-out, max-height 0.33s ease-in-out;
     height: auto;
-    max-height: 600px;
+    max-height: 300px;
     /* Prevents the submenu from growing too large */
 }
 
@@ -201,6 +229,11 @@ li.submenu-links-item {
         display: block;
     }
 
+    .main-nav-primary {
+        border: none;
+        padding: 0;
+    }
+
     .main-nav-primary,
     .main-nav-secondary {
         display: flex;
@@ -210,19 +243,29 @@ li.submenu-links-item {
         gap: 0.5rem;
         width: 100%;
         padding: 1rem 2rem;
+        margin: 1rem 0;
+        padding: 0;
+        font-weight: 800;
     }
 
     .main-nav-links {
         position: initial;
+        display: flex;
         flex-flow: column;
         justify-content: space-between;
         background-color: #fff;
         color: #575756;
+        padding: 0;
     }
 
     .main-nav-secondary-item {
         display: flex;
         align-items: center;
+    }
+
+    .main-nav-secondary-item:last-child {
+        padding: 0;
+        border: none;
     }
 
     .main-nav-btn-open {

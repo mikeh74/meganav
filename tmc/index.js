@@ -12,53 +12,57 @@ mainNavImgs.forEach(i => {
     };
 });
 
-const mainNavSecondaryItems = document.querySelectorAll('.main-nav-secondary-item > a');
-const submenus = document.querySelectorAll('.main-nav-secondary-item .submenu');
 
-const resetSubmenus = () => {
-    submenus.forEach(submenu => {
-        submenu.classList.remove('submenu-active');
-        const links = submenu.querySelectorAll('a');
-        links.forEach(link => {
-            link.tabIndex = -1;
+(function () {
+    const mainNavSecondaryItems = document.querySelectorAll('.main-nav-secondary-item > a');
+    const submenus = document.querySelectorAll('.main-nav-secondary-item .submenu');
+
+    const resetSubmenus = () => {
+        submenus.forEach(submenu => {
+            submenu.classList.remove('submenu-active');
+            const links = submenu.querySelectorAll('a');
+            links.forEach(link => {
+                link.tabIndex = -1;
+            });
+        });
+    };
+
+    mainNavSecondaryItems.forEach(item => {
+
+        const target = item.getAttribute('href');
+
+        if (!target || !target.startsWith('#') || target === '#') {
+            console.warn('Invalid target for main nav secondary item:', item);
+            return; // Skip this item if the target is invalid
+        }
+
+        const targetElement = document.querySelector(target);
+
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const links = targetElement.querySelectorAll('.submenu a');
+
+            targetElement.classList.add('submenu-loaded');
+            if (target && target.startsWith('#')) {
+                if (targetElement.classList.contains('submenu-active')) {
+                    targetElement.ariaHidden = true;
+                    resetSubmenus();
+                } else {
+                    resetSubmenus();
+                    targetElement.classList.add('submenu-active');
+                    targetElement.ariaHidden = false;
+
+                    links.forEach(link => {
+                        link.tabIndex = 0;
+                    });
+
+                }
+            };
         });
     });
-};
+})();
 
-mainNavSecondaryItems.forEach(item => {
-
-    const target = item.getAttribute('href');
-
-    if (!target || !target.startsWith('#') || target === '#') {
-        console.warn('Invalid target for main nav secondary item:', item);
-        return; // Skip this item if the target is invalid
-    }
-
-    const targetElement = document.querySelector(target);
-
-    item.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        const links = targetElement.querySelectorAll('.submenu a');
-
-        targetElement.classList.add('submenu-loaded');
-        if (target && target.startsWith('#')) {
-            if (targetElement.classList.contains('submenu-active')) {
-                targetElement.ariaHidden = true;
-                resetSubmenus();
-            } else {
-                resetSubmenus();
-                targetElement.classList.add('submenu-active');
-                targetElement.ariaHidden = false;
-
-                links.forEach(link => {
-                    link.tabIndex = 0;
-                });
-
-            }
-        };
-    });
-});
 
 /**
  * function to find all elements with a class of target-expand and then loop
@@ -81,25 +85,25 @@ targetExpandElements.forEach(element => {
     });
 });
 
-const mainNavBtnOpen = document.querySelector('.main-nav-btn-open');
-const mainNavBtnClose = document.querySelector('.main-nav-btn-close');
+(function () {
+    const mainNavToggle = () => {
+        const mainNavLinks = document.querySelector('.main-nav-links');
+        if (mainNavLinks) {
+            mainNavLinks.classList.toggle('main-nav-links-active');
+        }
+    }
 
-const mainNavLinks = document.querySelector('.main-nav-links');
+    const mainNavBtnOpen = document.querySelector('.main-nav-btn-open');
+    if (mainNavBtnOpen) {
+        mainNavBtnOpen.addEventListener('click', () => {
+            mainNavToggle();
+        });
+    }
 
-if (mainNavBtnOpen) {
-    mainNavBtnOpen.addEventListener('click', () => {
-        console.log('Main nav button clicked');
-        mainNavLinks.classList.toggle('main-nav-links-active');
-    });
-}
-
-if (mainNavBtnClose) {
-    mainNavBtnClose.addEventListener('click', () => {
-        console.log('Main nav close button clicked');
-        mainNavLinks.classList.remove('main-nav-links-active');
-    });
-}
-
-const mainNavToggle = () => {
-    mainNavLinks.classList.toggle('main-nav-links-active');
-};
+    const mainNavBtnClose = document.querySelector('.main-nav-btn-close');
+    if (mainNavBtnClose) {
+        mainNavBtnClose.addEventListener('click', () => {
+            mainNavToggle();
+        });
+    }
+}());
