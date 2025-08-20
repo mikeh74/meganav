@@ -63,6 +63,7 @@
 
 .main-nav-secondary {
     font-weight: 600;
+    margin-top: 2rem;
 }
 
 .main-nav-primary-item,
@@ -72,25 +73,24 @@
     /* position: relative; */
 }
 
-
-
-/* .main-nav-primary-item > a::after,
-.main-nav-secondary-item > a::after {
-    content: 'foo';
+.main-nav-secondary-item {
     display: block;
     width: 100%;
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    right: 0
-} */
+    position: relative;
+}
 
 .main-nav-secondary-item:last-child {
     padding-bottom: 1rem;
     border-bottom: 1px solid #fff;
 
     /* Add any additional styles you want for the last item */
+}
+
+.main-nav-secondary-item > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .main-nav-btn-open {
@@ -119,7 +119,6 @@
 .submenu {
     display: block;
     opacity: 0;
-    /* top: 110%; */
     pointer-events: none;
     position: relative;
     max-height: 0px;
@@ -261,7 +260,14 @@ li.submenu-links-item {
     .main-nav-secondary-item {
         display: flex;
         align-items: center;
+        width: auto;
+        position: initial;
     }
+
+    .main-nav-secondary-item::after {
+        content: none;
+    }
+
 
     .main-nav-secondary-item:last-child {
         padding: 0;
