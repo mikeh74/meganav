@@ -53,7 +53,6 @@
 }
 
 .main-nav-primary {
-    /* border-top: 1px solid #fff; */
     padding-top: 1rem;
     font-weight: 600;
 }
@@ -84,7 +83,6 @@
 .main-nav-secondary-item:last-child {
     padding-bottom: 1rem;
     border-bottom: 1px solid #fff;
-
     /* Add any additional styles you want for the last item */
 }
 
@@ -115,11 +113,6 @@
     right: 0;
 }
 
-/* .main-nav-secondary-item a:hover span {
-    text-decoration: none;
-    text-decoration-line: none !important;
-} */
-
 /**
  * Submenu styles
  * This component can be treated as self contained rather than being part of the main nav.
@@ -149,15 +142,6 @@
     /* Prevents the submenu from growing too large */
 }
 
-.submenu-links {
-    list-style: none;
-    padding: 0 0 0 20px;
-    background-color: rgba(0, 89, 113, 98);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-}
-
 .submenu-grid {
     list-style: none;
     padding: 0 0 0 20px;
@@ -165,46 +149,11 @@
     color: #fff;
 }
 
-li.submenu-links-item {
-    padding: 0;
-    display: flex;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.submenu-links-link {
-    display: inline;
-    height: auto;
-}
-
-.submenu-links-nested {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-
-}
-
-.submenu-links-nested-item {
-    padding: 0 !important;
-    margin: 0 !important;
-    width: auto;
-    flex-direction: row;
-    display: flex !important;
-    align-items: flex-end;
-}
-
 [data-main-nav-img] {
     background-position: -5000px;
     background-size: cover;
     background-repeat: no-repeat;
 }
-
-/* .main-nav-primary,
-.main-nav-secondary {
-    flex-direction: column;
-} */
 
 @media (min-width: 1200px) {
 
@@ -214,10 +163,6 @@ li.submenu-links-item {
         margin: 0 auto;
         padding: 0 20px;
     }
-
-    /* .burger-menu {
-        display: none;
-    } */
 
     .main-nav {
         flex-direction: row;
@@ -281,7 +226,6 @@ li.submenu-links-item {
     .main-nav-secondary-item::after {
         content: none;
     }
-
 
     .main-nav-secondary-item:last-child {
         padding: 0;
@@ -356,67 +300,17 @@ li.submenu-links-item {
     .submenu-grid-item--full {
         grid-row: span 2;
     }
-
-    .submenu-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 90%;
-        margin: auto;
-        max-width: 1440px;
-        background-color: #fff;
-        color: #575756;
-        justify-content: space-between;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        gap: 10px;
-    }
-
-    li.submenu-links-item {
-        background-color: #d3d3d3;
-        min-height: 300px;
-        width: 100%;
-        justify-content: center;
-        align-items: flex-end;
-    }
-
-    .submenu-links>li:first-child {
-        flex: 0 0 calc(((100% - 10px * 5) / 7) * 2);
-    }
-
-    .submenu-links-item {
-        flex: 0 0 calc((100% - 10px * 5) / 7);
-        min-height: 200px;
-    }
-
-    .submenu-links-link {
-        margin: 1rem;
-        max-width: calc(100% - 1rem);
-    }
-
-    .submenu-links-nested {
-        background-color: #fff;
-        gap: 10px;
-    }
-
-    .submenu-links-nested-item {
-        background-color: #d3d3d3;
-        width: 100%;
-        flex: 1 1 50%;
-        justify-content: center;
-    }
-
-    .submenu-links-nested-link {
-        margin: 1rem;
-    }
-
+    
     [data-main-nav-img] {
         background-position: center;
     }
-
+    
     /** * Rounded button styles
     *  Need to update the bootstrap variables to use these styles
     */
     .submenu-btn {
+        margin: 1rem;
+        max-width: calc(100% - 1rem);
         display: flex;
         align-items: center;
         justify-content: center;
