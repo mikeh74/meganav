@@ -1,0 +1,31 @@
+
+/* grid of four columns and 2 rows which allow items to be placed in a grid layout */
+
+.grid-container-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.grid-container-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.grid-item {
+  background-color: #ccc;
+  border: 1px solid #999;
+  padding: 20px;
+  min-height: 150px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item--tall {
+  grid-row: span 2;
+}
