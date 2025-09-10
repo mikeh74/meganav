@@ -1,19 +1,19 @@
+const loadImages = () => {
+    const mainNavImgs = document.querySelectorAll('[data-main-nav-img]');
 
-const mainNavImgs = document.querySelectorAll('[data-main-nav-img]');
+    mainNavImgs.forEach(i => {
+        let src = i.getAttribute('data-main-nav-img');
+        let img = new Image();
 
-mainNavImgs.forEach(i => {
-    let src = i.getAttribute('data-main-nav-img');
-    let img = new Image();
+        img.src = src;
+        img.onload = () => {
+            i.style.backgroundImage = `url(${src})`;
+            i.classList.add('active');
+        };
+    });
+};
 
-    img.src = src;
-    img.onload = () => {
-        i.style.backgroundImage = `url(${src})`;
-        i.classList.add('active');
-    };
-});
-
-
-(function () {
+const setupEventListeners = () => {
     const mainNavSecondaryItems = document.querySelectorAll('.main-nav-secondary-item > a');
     const submenus = document.querySelectorAll('.main-nav-secondary-item .submenu');
 
@@ -24,6 +24,10 @@ mainNavImgs.forEach(i => {
             links.forEach(link => {
                 link.tabIndex = -1;
             });
+        });
+
+        mainNavSecondaryItems.forEach(item => {
+            item.classList.remove('active');
         });
     };
 
@@ -47,12 +51,13 @@ mainNavImgs.forEach(i => {
             if (target && target.startsWith('#')) {
                 if (targetElement.classList.contains('submenu-active')) {
                     targetElement.ariaHidden = true;
+                    item.classList.remove('active');
                     resetSubmenus();
                 } else {
                     resetSubmenus();
                     targetElement.classList.add('submenu-active');
                     targetElement.ariaHidden = false;
-
+                    item.classList.add('active');
                     links.forEach(link => {
                         link.tabIndex = 0;
                     });
@@ -61,31 +66,9 @@ mainNavImgs.forEach(i => {
             };
         });
     });
-})();
+};
 
-
-/**
- * function to find all elements with a class of target-expand and then loop
- * throught them and add an event listener to each one that will take uses to
- * the first link in the current element
- */
-const targetExpandElements = document.querySelectorAll('.submenu-links-item');
-
-targetExpandElements.forEach(element => {
-    element.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        // find the first link in the current element
-        const firstLink = element.querySelector('a');
-        if (firstLink) {
-            window.location.href = firstLink.getAttribute('href');
-        } else {
-            console.warn('No link found in target expand element');
-        }
-    });
-});
-
-(function () {
+const mobileSetup = () => {
     const mainNavToggle = () => {
         const mainNavLinks = document.querySelector('.main-nav-links');
         if (mainNavLinks) {
@@ -106,4 +89,29 @@ targetExpandElements.forEach(element => {
             mainNavToggle();
         });
     }
-}());
+}
+
+// Debounce utility
+function debounce(fn, delay) {
+    let timer = null;
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+    };
+}
+
+function setupResponsiveImageLoader() {
+    let loaded = false;
+    function checkAndLoadImages() {
+        if (window.innerWidth > 992 && !loaded) {
+            loadImages();
+            loaded = true;
+            window.removeEventListener('resize', debouncedCheck);
+        }
+    }
+    const debouncedCheck = debounce(checkAndLoadImages, 150);
+    window.addEventListener('resize', debouncedCheck);
+    checkAndLoadImages(); // Initial check on page load
+}
+
+export { setupEventListeners, mobileSetup, setupResponsiveImageLoader };
