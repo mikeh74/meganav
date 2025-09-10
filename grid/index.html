@@ -142,10 +142,15 @@
     </main>
 
   <script type="module">
-    import { setupResponsiveImageLoader, setupEventListeners, mobileSetup } from './index.js';
-    setupEventListeners();
-    mobileSetup();
-    setupResponsiveImageLoader();
+    import setupMainNav from './index.js';
+    setupMainNav();
+
+    import lazyResponsiveBackground from './lazybg.js';
+
+    lazyResponsiveBackground({
+      attribute:'data-main-nav-img'
+    });
+
   </script>
 
 </body>

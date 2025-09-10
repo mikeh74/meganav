@@ -1,18 +1,3 @@
-const loadImages = () => {
-    const mainNavImgs = document.querySelectorAll('[data-main-nav-img]');
-
-    mainNavImgs.forEach(i => {
-        let src = i.getAttribute('data-main-nav-img');
-        let img = new Image();
-
-        img.src = src;
-        img.onload = () => {
-            i.style.backgroundImage = `url(${src})`;
-            i.classList.add('active');
-        };
-    });
-};
-
 const setupEventListeners = () => {
     const mainNavSecondaryItems = document.querySelectorAll('.main-nav-secondary-item > a');
     const submenus = document.querySelectorAll('.main-nav-secondary-item .submenu');
@@ -91,27 +76,9 @@ const mobileSetup = () => {
     }
 }
 
-// Debounce utility
-function debounce(fn, delay) {
-    let timer = null;
-    return function(...args) {
-        clearTimeout(timer);
-        timer = setTimeout(() => fn.apply(this, args), delay);
-    };
+const setupMainNav = () => {
+    setupEventListeners();
+    mobileSetup();
 }
 
-function setupResponsiveImageLoader() {
-    let loaded = false;
-    function checkAndLoadImages() {
-        if (window.innerWidth > 992 && !loaded) {
-            loadImages();
-            loaded = true;
-            window.removeEventListener('resize', debouncedCheck);
-        }
-    }
-    const debouncedCheck = debounce(checkAndLoadImages, 150);
-    window.addEventListener('resize', debouncedCheck);
-    checkAndLoadImages(); // Initial check on page load
-}
-
-export { setupEventListeners, mobileSetup, setupResponsiveImageLoader };
+export default setupMainNav;
